@@ -5,8 +5,8 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 const responsive = {
   // 0: { items: 1 },
-  // 568: { items: 2 },
-  // 1024: { items: 3 },
+  // 720: { items: 2 },
+  // 1024: { items: 5.5 },
 };
 const MainCarousel = () => {
   const items = HomeCarouselData.map((item) => (

@@ -10,7 +10,6 @@ const HomePage = () => {
       <div>
         <HomeSectionCarousel data={womenssaree} sectionName={"Womens Saree"}/>
         <HomeSectionCarousel data={womenssaree} sectionName={"Mens Dress"}/>
-
         <HomeSectionCarousel data={womenssaree} sectionName={"Childrens Dress"} />
       </div>
     </div>

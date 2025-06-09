@@ -1,10 +1,14 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 "use client";
 
 import { useState } from "react";
-import {  Radio, RadioGroup } from "@headlessui/react";
-import { Button, Rating} from "@mui/material";
+import { Radio, RadioGroup } from "@headlessui/react";
+import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
+import ProductReviewCard from "./ProductReviewCard";
+import { womenssaree } from "../../../Data/womensdress";
+import HomeSectionCard from "../../HomeSectionCard/HomeSectionCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -16,7 +20,7 @@ const product = {
   ],
   images: [
     {
-      src: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+      src: "https://scontent.fbir1-1.fna.fbcdn.net/v/t39.30808-6/494996818_1224341683036075_5322230787932981662_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ijrn3W-GSF4Q7kNvwH2FZSo&_nc_oc=AdmHYCuqK2ATKYIMETqHpafFXYxEpZG7GZM9gImQDJRp7MeB_W1AbSvrFqxBE1GZRt7a8Q7wtoKX2WdlJIuwq0Bj&_nc_zt=23&_nc_ht=scontent.fbir1-1.fna&_nc_gid=fmXlMH6OA96623mlV7OfFg&oh=00_AfOhfgUBO1Eo_wbYH4hblzFxnUeGTb18T3VxzdsIpjBdDA&oe=684CB703",
       alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
@@ -61,11 +65,11 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
-//   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  //   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white lg:px-20">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
@@ -128,12 +132,12 @@ export default function ProductDetails() {
             <div className="lg:col-span-2 ">
               <h className="text-lg lg:text-xl font-semibold text-gray-900">
                 {/* {product.name} */}
-                Universal Outfit
+                Purbeli Dhaka
               </h>
 
               <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">
                 {" "}
-                Casual Puff Sleeves SOlid Womens Top
+                Casual Puff Sleeves Solid Womens saree
               </h1>
             </div>
 
@@ -150,9 +154,9 @@ export default function ProductDetails() {
               <div className="mt-6">
                 <div className="flex items-center space-x-3">
                   <Rating name="read-only" value={5.5} readOnly />
-                  <p className="opacity-50 text-sm">600 ratings</p>
+                  <p className="opacity-50 text-sm">60 ratings</p>
                   <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                    10000 reviews
+                    100 reviews
                   </p>
                 </div>
               </div>
@@ -214,13 +218,14 @@ export default function ProductDetails() {
                   </fieldset>
                 </div>
 
-                {/* <button
-                  type="submit"
-                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
-                >
-                 
-                </button> */}
-                <Button variant="secondary" sx={{px:"2rem",py:"1rem",bgcolor:"#9155fd"}} >Add To Cart</Button>
+                <div className="mt-2">
+                  <Button
+                    variant="contained"
+                    sx={{ px: "2rem", py: "1rem", bgcolor: "#9155fd" }}
+                  >
+                    Add To Cart
+                  </Button>
+                </div>
               </form>
             </div>
 
@@ -260,6 +265,60 @@ export default function ProductDetails() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        {/* ratings and reviews */}
+        <section>
+          <h1 className="font-semibold text-lg pb-4">
+            Recent Review and Rating
+          </h1>
+          <div className="border p-5">
+            <Grid container spacing={7}>
+              <Grid item xs={7}>
+                <div className="space-y-5 ">
+                  {[1, 1, 1].map((item) => (
+                    <ProductReviewCard />
+                  ))}
+                </div>
+              </Grid>
+              <Grid item xs={5}>
+                <h1 className="text-xl font-semibold pb-1">Product Ratings</h1>
+                <div className="flex items-center space-x-2 ">
+                  <Rating name="read-only " value={4.6} readOnly />
+                  <p className="opacity-60">1200 Ratings</p>
+                </div>
+                <Box className="">
+                  <Grid container alignItems="center" gap={2}>
+                    <Grid item xs={2}>
+                      <p>Excellent</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{
+                          bgcolor: "gray",
+                          borderRadius: 4,
+                          height: 7,
+                          width: "100%",
+                          display: "flex",
+                        }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      />
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Grid>
+            </Grid>
+          </div>
+        </section>
+        {/* similar products */}
+        <section className="pt-10 ">
+          <h1 className="py-5 text-xl font-bold">Similar Products</h1>
+          <div className="flex flex-wrap space-y-5">
+            {womenssaree.map((item) => (
+              <HomeSectionCard product={item} />
+            ))}
           </div>
         </section>
       </div>
