@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use client";
 import { useState } from "react";
 import {
@@ -52,7 +53,8 @@ export default function Product() {
 
     let filterValue = searchParams.getAll(sectionId);
     if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
-      filterValue = filterValue[0].split(",").filter((item) => item !== value);
+      // eslint-disable-next-line eqeqeq
+      filterValue = filterValue[0].split(",").filter((item) => item != value);
 
       if (filterValue.length === 0) {
         searchParams.delete(sectionId);
@@ -62,9 +64,17 @@ export default function Product() {
     }
     if (filterValue.length > 0) {
       searchParams.set(sectionId, filterValue.join(","));
-      const query = searchParams.toString();
-      navigate({ search: `?${query}` });
     }
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
+
+  const handleRadioFilterChange = (e, sectionId) => {
+  const searchParams = new URLSearchParams(location.search);
+  searchParams.set(sectionId, e.target.value);
+  const query = searchParams.toString();
+  navigate({ search: `?${query}` });
+
   };
 
   return (
@@ -136,6 +146,7 @@ export default function Product() {
                                 type="checkbox"
                                 className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                               />
+
                               <svg
                                 fill="none"
                                 viewBox="0 0 14 14"
@@ -280,7 +291,7 @@ export default function Product() {
                               <div className="group grid size-4 grid-cols-1">
                                 <input
                                   onChange={() =>
-                                    handleFilter(option, section.id)
+                                    handleFilter(option.value, section.id)
                                   }
                                   defaultValue={option.value}
                                   defaultChecked={option.checked}
@@ -359,10 +370,12 @@ export default function Product() {
                               name="radio-buttons-group"
                             >
                               {section.options.map((option, optionIdx) => (
-                           
                                 <>
                                   <FormControlLabel
-                                    value={option.id}
+                                    onChange={(e) =>
+                                      handleRadioFilterChange(e, section.id)
+                                    }
+                                    value={option.value}
                                     control={<Radio />}
                                     label={option.label}
                                   />
@@ -389,6 +402,5 @@ export default function Product() {
         </section>
       </main>
     </div>
-   
   );
 }
