@@ -4,6 +4,7 @@ import HomePage from "./customer/pages/HomePage/HomePage";
 import Footer from "./customer/components/Footer/Footer";
 import Product from "./customer/components/product/Product.jsx";
 import ProductDetails from "./customer/components/ProductDetails/ProductDetails.jsx";
+import Cart from "./customer/components/Cart/Cart.jsx";
 // import Product from "../src/customer/components/Product/Product.jsx";
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       <div>
         {/* <HomePage /> */}
         {/* <Product/> */}
-        <ProductDetails/>
+        {/* <ProductDetails/> */}
+        <Cart/>
       </div>
       <Footer/>
     </div>

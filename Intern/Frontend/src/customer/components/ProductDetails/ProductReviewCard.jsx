@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductReviewCard = () => {
   return (
-    <div>
+    <div className="flex items-center">
       <Grid container spacing={2} gap={3}>
         <Grid item xs={1}>
           <Box>

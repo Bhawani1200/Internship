@@ -281,33 +281,36 @@ export default function ProductDetails() {
                   ))}
                 </div>
               </Grid>
-              <Grid item xs={5}>
-                <h1 className="text-xl font-semibold pb-1">Product Ratings</h1>
-                <div className="flex items-center space-x-2 ">
-                  <Rating name="read-only " value={4.6} readOnly />
-                  <p className="opacity-60">1200 Ratings</p>
-                </div>
-                <Box className="">
-                  <Grid container alignItems="center" gap={2}>
-                    <Grid item xs={2}>
-                      <p>Excellent</p>
+
+              <Grid>
+                <Grid item xs={5}>
+                  <h1 className="text-xl font-semibold pb-1">
+                    Product Ratings
+                  </h1>
+                  <div className="flex items-center space-x-2">
+                    <Rating name="read-only " value={4.6} precision={0.5} />
+                    <p className="opacity-60">1200 ratings</p>
+                  </div>
+                  <Box sx={{ width: "100%" }}>
+                    <Grid
+                      container
+                      justifyContent="center"
+                      alignItems="center"
+                      gap={2}
+                    >
+                      <Grid item xs={2}>
+                        <p>Excellent</p>
+                      </Grid>
+                      <Grid item xs={7}>
+                        <LinearProgress
+                          variant="determinate"
+                          value={40}
+                          color="success"
+                        />
+                      </Grid>
                     </Grid>
-                    <Grid item xs={7}>
-                      <LinearProgress
-                        sx={{
-                          bgcolor: "gray",
-                          borderRadius: 4,
-                          height: 7,
-                          width: "100%",
-                          display: "flex",
-                        }}
-                        variant="determinate"
-                        value={40}
-                        color="success"
-                      />
-                    </Grid>
-                  </Grid>
-                </Box>
+                  </Box>
+                </Grid>
               </Grid>
             </Grid>
           </div>
@@ -315,7 +318,7 @@ export default function ProductDetails() {
         {/* similar products */}
         <section className="pt-10 ">
           <h1 className="py-5 text-xl font-bold">Similar Products</h1>
-          <div className="flex flex-wrap space-y-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {womenssaree.map((item) => (
               <HomeSectionCard product={item} />
             ))}
