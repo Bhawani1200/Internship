@@ -1,10 +1,8 @@
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import logo from "../../../logo/logo.png";
 const Footer = () => {
   return (
     <div>
-  
-
       <footer className="bg-gray-900 text-white pt-12 pb-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -17,13 +15,8 @@ const Footer = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 > */}
-                <img src={logo} 
-                height={200}
-                width={200}
-                alt="" 
-
-                />
-                  {/* <path
+                <img src={logo} height={200} width={200} alt="" className="" />
+                {/* <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
@@ -32,8 +25,8 @@ const Footer = () => {
                 {/* </svg> */}
                 {/* <span className="ml-2 text-xl font-bold">Company</span> */}
               </div>
-              <p className="text-gray-400">
-                Building innovative solutions for the modern world.
+              <p className="text-red-400 font-bold text-2xl ml-2">
+               "Wear the Legacy, Carry the Pride"
               </p>
               <div className="flex space-x-4">
                 <a
@@ -96,23 +89,6 @@ const Footer = () => {
                     />
                   </svg>
                 </a>
-                {/* <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  <span className="sr-only">LinkedIn</span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a> */}
               </div>
             </div>
             {/* Quick Links */}
@@ -170,7 +146,7 @@ const Footer = () => {
                     href="#"
                     className="text-gray-400 hover:text-white transition"
                   >
-                    Web Development
+                   Men's Dress
                   </a>
                 </li>
                 <li>
@@ -178,7 +154,7 @@ const Footer = () => {
                     href="#"
                     className="text-gray-400 hover:text-white transition"
                   >
-                    Mobile Apps
+                 Women's Dress
                   </a>
                 </li>
                 <li>
@@ -186,7 +162,7 @@ const Footer = () => {
                     href="#"
                     className="text-gray-400 hover:text-white transition"
                   >
-                    UI/UX Design
+                 Children Dress
                   </a>
                 </li>
                 <li>
@@ -194,7 +170,7 @@ const Footer = () => {
                     href="#"
                     className="text-gray-400 hover:text-white transition"
                   >
-                    Digital Marketing
+                   Ornaments
                   </a>
                 </li>
                 <li>
@@ -202,7 +178,7 @@ const Footer = () => {
                     href="#"
                     className="text-gray-400 hover:text-white transition"
                   >
-                    Cloud Solutions
+                    Gifts
                   </a>
                 </li>
               </ul>
@@ -211,15 +187,15 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Contact Us</h3>
               <address className="not-italic text-gray-400">
-                <p>123 Business Ave</p>
-                <p>San Francisco, CA 94107</p>
+                <p>Dharan,Sunsari</p>
+                <p>Chataraline, Dharan-12 Near wada office</p>
                 <p className="mt-2">
                   Email:{" "}
                   <a
                     href="mailto:info@company.com"
                     className="hover:text-white transition"
                   >
-                    info@company.com
+              Lnuma751@gmail.com
                   </a>
                 </p>
                 <p>
@@ -228,7 +204,7 @@ const Footer = () => {
                     href="tel:+11234567890"
                     className="hover:text-white transition"
                   >
-                    +1 (123) 456-7890
+                    +977 982-7311152
                   </a>
                 </p>
               </address>

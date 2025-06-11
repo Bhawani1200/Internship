@@ -17,26 +17,18 @@ export default function Checkout() {
   const querySearch = new URLSearchParams(location.search);
   const step = querySearch.get("step");
 
-//     React.useEffect(() => {
-//     if (step) {
-//       setActiveStep(parseInt(step));
-//     }
-//   }, [step]);
-
   const handleNext = () => {
- 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-     
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   return (
-    <div className="px-10 lg:px-20 ">
+    <div className="px-10 lg:px-20">
       <Box sx={{ width: "100%" }}>
-        <Stepper activeStep={activeStep}>
+        <Stepper activeStep={step}>
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
@@ -53,6 +45,9 @@ export default function Checkout() {
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
+            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Box sx={{ flex: "1 1 auto" }} />
+            </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -65,8 +60,13 @@ export default function Checkout() {
               >
                 Back
               </Button>
+              <Box sx={{ flex: "1 1 auto" }} />
+
+              <Button onClick={handleNext}>
+                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              </Button>
             </Box>
-            <div>{step == 2 ? <DeliveryAddressForm /> : <OrderSummary />}</div>
+            <div className="mt-10">{step === 2 ? <DeliveryAddressForm /> : <OrderSummary />}</div>
           </React.Fragment>
         )}
       </Box>

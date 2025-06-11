@@ -7,6 +7,8 @@ import ProductDetails from "./customer/components/ProductDetails/ProductDetails.
 import Cart from "./customer/components/Cart/Cart.jsx";
 import Checkout from "./customer/components/Checkout/Checkout.jsx";
 import DeliveryAddressForm from "./customer/components/Checkout/DeliveryAddressForm.jsx";
+import OrderSummary from "./customer/components/Checkout/OrderSummary.jsx";
+
 // import Product from "../src/customer/components/Product/Product.jsx";
 const App = () => {
   return (
@@ -18,9 +20,10 @@ const App = () => {
         {/* <ProductDetails/> */}
         {/* <Cart/> */}
         {/* <Checkout/> */}
-        <DeliveryAddressForm/>
+        {/* <DeliveryAddressForm /> */}
+        <OrderSummary/>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
