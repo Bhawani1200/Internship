@@ -21,7 +21,7 @@ export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -389,7 +389,9 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem></MenuItem>
+                        <MenuItem onClick={() => navigate("/account/order")}>
+                          My Orders
+                        </MenuItem>
                         <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>
