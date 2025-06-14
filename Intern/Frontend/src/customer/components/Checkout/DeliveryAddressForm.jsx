@@ -22,9 +22,10 @@ const DeliveryAddressForm = () => {
     <div>
       <Grid container spacing={4}>
         <Grid
+        item
           xs={12}
           lg={5}
-          className="border rounded-e-md shadow-md h-[30.5rem]  overflow-y-scroll ml-10 "
+          className="border rounded-e-md shadow-md h-[30.5rem]  overflow-y-scroll  "
         >
           <div className="p-5 py-7 border-b cursor-pointer">
             <AddressCard />
