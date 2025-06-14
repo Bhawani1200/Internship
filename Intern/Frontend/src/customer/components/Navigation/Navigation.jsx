@@ -13,16 +13,15 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { navigation } from "./navigationData";
 import { ClassNames } from "@emotion/react";
-// function ClassNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
+import { useNavigate } from "react-router-dom";
+
 export default function Navigation() {
   const [open, setOpen] = useState(false);
-
   const [setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
 
+  const navigate=useNavigate()
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -35,7 +34,7 @@ export default function Navigation() {
   };
 
   const handleCategoryClick = (category, section, item, close) => {
-    // navigate(`/${category.id}/${section.id}/${item.id}`);
+    navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
 

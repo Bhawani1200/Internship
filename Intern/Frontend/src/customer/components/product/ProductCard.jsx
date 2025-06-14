@@ -1,8 +1,14 @@
 import React from "react";
-import "./ProductCard.css"
-const ProductCard = ({product}) => {
+import "./ProductCard.css";
+import { useNavigate } from "react-router-dom";
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="productCard w-[15rem] m-3 transition-all cursor-pointer">
+    <div
+      onClick={() => navigate(`/product/${5}`)}
+      className="productCard w-[15rem] m-3 transition-all cursor-pointer"
+    >
       <div className="h-[20rem]">
         <img
           src={product.imageUrl}
@@ -18,7 +24,9 @@ const ProductCard = ({product}) => {
         <div className="flex items-center space-x-2">
           <p className="font-semibold">रु{product.discountedPrice}</p>
           <p className="line-through opacity-50">{product.price}</p>
-          <p className="font-semibold text-green-500">{product.discountPersent}% off</p>
+          <p className="font-semibold text-green-500">
+            {product.discountPersent}% off
+          </p>
         </div>
       </div>
     </div>

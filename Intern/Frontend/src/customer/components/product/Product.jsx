@@ -53,7 +53,6 @@ export default function Product() {
 
     let filterValue = searchParams.getAll(sectionId);
     if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
-      // eslint-disable-next-line eqeqeq
       filterValue = filterValue[0].split(",").filter((item) => item != value);
 
       if (filterValue.length === 0) {
@@ -70,11 +69,10 @@ export default function Product() {
   };
 
   const handleRadioFilterChange = (e, sectionId) => {
-  const searchParams = new URLSearchParams(location.search);
-  searchParams.set(sectionId, e.target.value);
-  const query = searchParams.toString();
-  navigate({ search: `?${query}` });
-
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set(sectionId, e.target.value);
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
   };
 
   return (
